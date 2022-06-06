@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const fs = require("fs");
 const { v4: uuid } = require("uuid");
+const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.post("/user/create", (req, res) => {
@@ -140,6 +141,6 @@ app.post("/db", (req, res) => {
     if (err) console.log(err);
   });
 });
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("Started");
 });
